@@ -23,6 +23,24 @@ namespace Sensors.Contracts.Interfaces
         /// </summary>
         IRegisterItem[] RegisterSequence { get; }
 
+
+        IRegisterItem SampleRateDivider { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        IRegisterItem Configuration { get; set; }
+
+        IRegisterItem GyroscopeConfiguration { get; set; }
+
+        IRegisterItem AccelerometerConfiguration { get; set; }
+
+        IRegisterItem I2CMasterControl { get; set; }
+
+        IRegisterItem MotionDetectionThreshold { get; set; }
+
+        IRegisterItem FIFO_ENABLE { get; set; }
+
         /// <summary>
         /// Ruft die Einstellungen zu Power Management ab oder legt diese fest.
         /// Hier kann ein Reset ausgeführt, Sensor schlafen legen, 
@@ -30,16 +48,5 @@ namespace Sensors.Contracts.Interfaces
         /// die Takt Quelle ausgewelt werden.
         /// </summary>
         IRegisterItem PowerManagement1 { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        IRegisterItem Configuration { get; set; }
-
-        IRegisterItem I2CMasterControl { get; set; }
-
-        IRegisterItem GyroscopeConfiguration { get; set; }
-
-        IRegisterItem AccelerometerConfiguration { get; set; }
     }
 }

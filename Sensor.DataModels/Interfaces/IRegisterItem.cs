@@ -6,6 +6,8 @@ namespace Sensors.Contracts.Interfaces
     /// </summary>
     public interface IRegisterItem
     {
+        bool Enable { get; set; }
+
         /// <summary>
         /// Ruft das Register und Setup Byte ab.
         /// </summary>

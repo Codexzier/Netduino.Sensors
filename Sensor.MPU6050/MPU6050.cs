@@ -86,7 +86,10 @@ namespace Sensors.MPU6050
 
             foreach (var item in regConfig.RegisterSequence)
             {
-                this._I2CConnector.Write(item.GetRegisterSetup());
+                if (item.Enable)
+                {
+                    this._I2CConnector.Write(item.GetRegisterSetup());
+                }
             }
         }
 

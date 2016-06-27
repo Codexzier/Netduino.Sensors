@@ -12,6 +12,11 @@ namespace Sensors.MPU6050.Register.Registers
     public class RegisterConfiguration : RegisterBase, IRegisterItem
     {
         /// <summary>
+        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
+        /// </summary>
+        public bool Enable { get; set; }
+
+        /// <summary>
         /// Standard Einstellung
         /// EXT_SYNC_SET = Input Disabled, 
         /// Tief-Pass einstellen 
@@ -20,6 +25,8 @@ namespace Sensors.MPU6050.Register.Registers
         /// </summary>
         public RegisterConfiguration()
         {
+            this.Enable = true;
+
             this.EXT_SYNC = Select_EXT_SYNC_SET.Input_disabled;
             this.DLPF = Select_DLPF_CFG.Acc_Hz260_d000_Gyr_Hz256_d0098_Fs8kHz;
         }

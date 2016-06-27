@@ -52,6 +52,15 @@ namespace Sensors.MPU6050.Register
 
                 // Acceleration Configuration
                 this._registerItems[5] = new RegisterAccelerometerConfiguration();
+
+                // Sample Divider (Aus)
+                this._registerItems[6] = new RegisterSampleRateDivider();
+
+                // Motion Detection Threshold (Aus)
+                this._registerItems[7] = new RegisterMotionDetectionThreshold();
+
+                // FIFO Enable
+                this._registerItems[8] = new RegisterFIFOEnable();
             }
         }
 
@@ -113,6 +122,26 @@ namespace Sensors.MPU6050.Register
         {
             get { return this._registerItems[5]; }
             set { this._registerItems[5] = value; }
+        }
+
+
+        public IRegisterItem SampleRateDivider
+        {
+            get { return this._registerItems[6]; }
+            set { this._registerItems[6] = value; }
+        }
+
+
+        public IRegisterItem MotionDetectionThreshold
+        {
+            get { return this._registerItems[7]; }
+            set { this._registerItems[7] = value; }
+        }
+
+        IRegisterItem FIFO_ENABLE
+        {
+            get { return this._registerItems[8]; }
+            set { this._registerItems[8] = value; }
         }
     }
 }

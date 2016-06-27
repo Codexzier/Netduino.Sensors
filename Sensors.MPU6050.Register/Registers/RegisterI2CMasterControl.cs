@@ -11,11 +11,18 @@ namespace Sensors.MPU6050.Register.Registers
     public class RegisterI2CMasterControl : RegisterBase, IRegisterItem
     {
         /// <summary>
+        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
+        /// </summary>
+        public bool Enable { get; set; }
+
+        /// <summary>
         /// Festlegen der Standard Einstellungen.
         /// Legt die Takt Geschwindigkeit auf 400kHz fest.
         /// </summary>
         public RegisterI2CMasterControl()
         {
+            this.Enable = true;
+
             this.MULT_MST_EN = false;
             this.WAIT_FOR_ES = false;
             this.SLV_3_FIFO_EN = false;

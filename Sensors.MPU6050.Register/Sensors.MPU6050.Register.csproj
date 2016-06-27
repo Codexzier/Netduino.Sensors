@@ -42,9 +42,14 @@
     <Compile Include="RegisterManagement.cs" />
     <Compile Include="Registers\RegisterAccelerometerConfiguration.cs" />
     <Compile Include="Registers\RegisterConfiguration.cs" />
+    <Compile Include="Registers\RegisterFIFOEnable.cs" />
     <Compile Include="Registers\RegisterGyroscopeConfiguration.cs" />
     <Compile Include="Registers\RegisterI2CMasterControl.cs" />
-    <Compile Include="Registers\RegisterPowerManagement.cs" />
+    <Compile Include="Registers\RegisterI2CSlave0Control_ADDR.cs" />
+    <Compile Include="Registers\RegisterI2CSlave0Control_Reg.cs" />
+    <Compile Include="Registers\RegisterMotionDetectionThreshold.cs" />
+    <Compile Include="Registers\RegisterPowerManagement1.cs" />
+    <Compile Include="Registers\RegisterSampleRateDivider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Native" />

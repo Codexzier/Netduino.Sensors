@@ -7,8 +7,15 @@ namespace Sensors.MPU6050.Register.Registers
 {
     public class RegisterAccelerometerConfiguration : RegisterBase, IRegisterItem
     {
+        /// <summary>
+        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
+        /// </summary>
+        public bool Enable { get; set; }
+
         public RegisterAccelerometerConfiguration()
         {
+            this.Enable = true;
+
             this.XA_ST = false;
             this.YA_ST = false;
             this.ZA_ST = false;
