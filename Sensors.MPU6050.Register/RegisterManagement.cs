@@ -112,32 +112,51 @@ namespace Sensors.MPU6050.Register
             set { this._registerItems[3] = value; }
         }
 
+        /// <summary>
+        /// Ruft die Einstellungen für die Gyroskopesensoren ab oder legt diesen fest.
+        /// Ermöglicht den Selftest der einzelnen Achsen und die Auflösung die Drehgeschwindigkeit einzustellen.
+        /// </summary>
         public IRegisterItem GyroscopeConfiguration
         {
             get { return this._registerItems[4]; }
             set { this._registerItems[4] = value; }
         }
 
+        /// <summary>
+        /// Ruft die Einstellungen für den Beschleunigungssensor ab oder legt diesen fest.
+        /// Ermöglicht den Selftest der einzelnen Achsen und die Auflösung der Beschleunigung einzustellen.
+        /// </summary>
         public IRegisterItem AccelerometerConfiguration
         {
             get { return this._registerItems[5]; }
             set { this._registerItems[5] = value; }
         }
 
-
+        /// <summary>
+        /// Ruft die Einstellungen für den Sample rate divider ab oder legt diesen fest.
+        /// TODO: Geneuer Erläutern.
+        /// </summary>
         public IRegisterItem SampleRateDivider
         {
             get { return this._registerItems[6]; }
             set { this._registerItems[6] = value; }
         }
 
-
+        /// <summary>
+        /// Ruft die Einstellungen für die Bewegungserkennung ab oder legt diese fest.
+        /// Damit läst sich festlegen, bei welcher Beschleunigung reagiert werden soll. 
+        /// Dazu sind weitere Einstellungen über Register 56 (Interrupt Enable) und 58 (Interrupt Status) erforderlich.
+        /// </summary>
         public IRegisterItem MotionDetectionThreshold
         {
             get { return this._registerItems[7]; }
             set { this._registerItems[7] = value; }
         }
 
+        /// <summary>
+        /// Ruft die Einstellungen für den FIFO Puffer ab oder legt diese fest.
+        /// Damit können Sensormessungen in den Puffer zwischengespeichert werden.
+        /// </summary>
         IRegisterItem FIFO_ENABLE
         {
             get { return this._registerItems[8]; }
