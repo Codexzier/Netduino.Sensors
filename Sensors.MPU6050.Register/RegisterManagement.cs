@@ -157,7 +157,7 @@ namespace Sensors.MPU6050.Register
         /// Ruft die Einstellungen für den FIFO Puffer ab oder legt diese fest.
         /// Damit können Sensormessungen in den Puffer zwischengespeichert werden.
         /// </summary>
-        IRegisterItem FIFO_ENABLE
+        public IRegisterItem FIFO_ENABLE
         {
             get { return this._registerItems[8]; }
             set { this._registerItems[8] = value; }

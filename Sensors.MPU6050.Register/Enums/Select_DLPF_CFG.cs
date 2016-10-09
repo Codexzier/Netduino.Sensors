@@ -11,7 +11,7 @@ namespace Sensors.MPU6050.Register.Enums
         Acc_Hz044_d049_Gyr_Hz042_d0480_Fs1kHz = 3,
         Acc_Hz021_d085_Gyr_Hz020_d0830_Fs1kHz = 4,
         Acc_Hz010_d138_Gyr_Hz010_d1340_Fs1kHz = 5,
-        Acc_Hz005_d190_Gyr_Hz005_d1860_Fs1kHz = 6,,
+        Acc_Hz005_d190_Gyr_Hz005_d1860_Fs1kHz = 6,
         Acc_Reserved_Fs8kHz = 7
     }
 }
