@@ -1,6 +1,7 @@
 using System;
 using Microsoft.SPOT;
 using Sensors.Contracts.Interfaces;
+using Sensors.Contracts.Enums;
 
 namespace Sensors.MPU6050.Register.Registers
 {
@@ -8,18 +9,14 @@ namespace Sensors.MPU6050.Register.Registers
     /// Die Sensor Eregbnisse (FIFO, DMP, Motion detection) basierend auf die Sample Rate.
     /// Register 25, Sample Rate Divider (SMPRT_DIV)
     /// </summary>
-    public class RegisterSampleRateDivider : RegisterBase, IRegisterItem
+    public class RegisterSampleRateDivider : RegisterBase
     {
-        /// <summary>
-        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
-        /// </summary>
-        public bool Enable { get; set; }
-
         /// <summary>
         /// Legt die Standard Einstellung des Divider fest. 
         /// SMPLRT_DIV = 0 (Off)
         /// </summary>
         public RegisterSampleRateDivider()
+            : base()
         {
             this.SMPLRT_DIV = 0;
         }
@@ -35,7 +32,7 @@ namespace Sensors.MPU6050.Register.Registers
             set 
             { 
                 this._SMPLRT_DIV = value;
-                this.Enable = this._SMPLRT_DIV != 0;
+                this.RegisterSetup = this._SMPLRT_DIV != 0 ? RegisterItemUsing.ResgisterSetup : RegisterItemUsing.Disabled;
             }
         }
 
@@ -43,7 +40,7 @@ namespace Sensors.MPU6050.Register.Registers
         /// Ruft das Register und Setup Byte ab.
         /// </summary>
         /// <returns>Gibt die Bytes zurück.</returns>
-        public byte[] GetRegisterSetup()
+        public override byte[] GetRegisterSetup()
         {
             byte[] ba = new byte[2];
 

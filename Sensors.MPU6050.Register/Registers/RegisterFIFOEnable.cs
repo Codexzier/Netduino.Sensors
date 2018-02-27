@@ -1,6 +1,7 @@
 using System;
 using Microsoft.SPOT;
 using Sensors.Contracts.Interfaces;
+using Sensors.Contracts.Enums;
 
 namespace Sensors.MPU6050.Register.Registers
 {
@@ -8,21 +9,15 @@ namespace Sensors.MPU6050.Register.Registers
     /// Stellt die Konfiguration zusammen für FIFO Enable (FIFO_EN).
     /// Mit diesem Register lässt sich festlegen weleche Sensormessungen in den FIFO Puffer geladen werden.
     /// </summary>
-    public class RegisterFIFOEnable : RegisterBase, IRegisterItem
+    public class RegisterFIFOEnable : RegisterBase
     {
-        /// <summary>
-        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
-        /// </summary>
-        public bool Enable { get; set; }
-
         /// <summary>
         /// Standard Konstruktor.
         /// Register ist initial nicht enabled;
         /// </summary>
         public RegisterFIFOEnable()
+            : base()
         {
-            this.Enable = false;
-
             this.TEMP_FIFO_EN = false;
 
             this.XG_FIFO_EN = false;
@@ -88,7 +83,7 @@ namespace Sensors.MPU6050.Register.Registers
         /// Ruft das Register und Setup Byte ab.
         /// </summary>
         /// <returns>Gibt die Bytes zurück.</returns>
-        public byte[] GetRegisterSetup()
+        public override byte[] GetRegisterSetup()
         {
             byte[] ba = new byte[2];
 

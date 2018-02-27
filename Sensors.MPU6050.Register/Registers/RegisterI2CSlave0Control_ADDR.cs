@@ -1,24 +1,22 @@
 using System;
 using Microsoft.SPOT;
 using Sensors.Contracts.Interfaces;
+using Sensors.Contracts.Enums;
 
 namespace Sensors.MPU6050.Register.Registers
 {
-    public class RegisterI2CSlave0Control_ADDR : RegisterBase, IRegisterItem
+    /// <summary>
+    /// Slae 0 Control Addr (Register 37 oder Hex Adresse 0x25)
+    /// </summary>
+    public class RegisterI2CSlave0Control_ADDR : RegisterBase
     {
-        /// <summary>
-        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
-        /// </summary>
-        public bool Enable { get; set; }
-
         /// <summary>
         /// Standard Konstruktor.
         /// Inital nicht Enabled.
         /// </summary>
         public RegisterI2CSlave0Control_ADDR()
+            : base()
         {
-            this.Enable = false;
-
             this.I2C_SLV0_RW = false;
             this.I2C_SLV0_ADDR = 0;
         }
@@ -54,7 +52,7 @@ namespace Sensors.MPU6050.Register.Registers
         /// Ruft das Register und Setup Byte ab.
         /// </summary>
         /// <returns>Gibt die Bytes zurück.</returns>
-        public byte[] GetRegisterSetup()
+        public override byte[] GetRegisterSetup()
         {
             byte[] ba = new byte[2];
 
@@ -62,8 +60,6 @@ namespace Sensors.MPU6050.Register.Registers
             ba[0] = 0x25;
 
             // Setup
-            ba[1] = 0x00;
-
             // Adresse
             ba[1] = this._I2C_SLV0_ADDR;
 

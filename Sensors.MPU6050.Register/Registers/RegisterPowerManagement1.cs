@@ -2,28 +2,23 @@
 using System.Text;
 using Sensors.MPU6050.Register.Enums;
 using Sensors.Contracts.Interfaces;
+using Sensors.Contracts.Enums;
 
 namespace Sensors.MPU6050.Register.Registers
 {
     /// <summary>
     /// Stellt die Konfiguration zusammen für den Power Management (PWR_MGMT_1). 
     /// </summary>
-    public class RegisterPowerManagement1 : RegisterBase, IRegisterItem
+    public class RegisterPowerManagement1 : RegisterBase
     {
-        /// <summary>
-        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
-        /// </summary>
-        public bool Enable { get; set; }
-
         /// <summary>
         /// Standard Konstruktor.
         /// Device Reset ist true.
         /// Verwendung des Internen Taktquelle.
         /// </summary>
         public RegisterPowerManagement1()
+            : base()
         {
-            this.Enable = true;
-
             this.Device_Reset = true;
             this.Sleep = false;
             this.Cycle = false;
@@ -45,7 +40,7 @@ namespace Sensors.MPU6050.Register.Registers
             bool enableTemperature = true, 
             Select_ClockSelectSource clockSelect = Select_ClockSelectSource.Internal8MHz)
         {
-            this.Enable = true;
+            this.RegisterSetup = RegisterItemUsing.ResgisterSetup;
 
             this.Device_Reset = deviceReset;
             this.Sleep = sleep;
@@ -94,7 +89,7 @@ namespace Sensors.MPU6050.Register.Registers
         /// Ruft das Register und Setup Byte ab.
         /// </summary>
         /// <returns>Gibt die Bytes zurück.</returns>
-        public byte[] GetRegisterSetup()
+        public override byte[] GetRegisterSetup()
         {
             byte[] ba = new byte[2];
 

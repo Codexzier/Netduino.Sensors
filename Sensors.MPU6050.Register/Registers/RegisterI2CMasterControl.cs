@@ -2,27 +2,21 @@ using System;
 using Microsoft.SPOT;
 using Sensors.Contracts.Interfaces;
 using Sensors.MPU6050.Register.Enums;
+using Sensors.Contracts.Enums;
 
 namespace Sensors.MPU6050.Register.Registers
 {
     /// <summary>
     /// Register 36 - I²C Master Control
     /// </summary>
-    public class RegisterI2CMasterControl : RegisterBase, IRegisterItem
+    public class RegisterI2CMasterControl : RegisterBase
     {
-        /// <summary>
-        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
-        /// </summary>
-        public bool Enable { get; set; }
-
         /// <summary>
         /// Festlegen der Standard Einstellungen.
         /// Legt die Takt Geschwindigkeit auf 400kHz fest.
         /// </summary>
-        public RegisterI2CMasterControl()
+        public RegisterI2CMasterControl() : base()
         {
-            this.Enable = true;
-
             this.MULT_MST_EN = false;
             this.WAIT_FOR_ES = false;
             this.SLV_3_FIFO_EN = false;
@@ -66,7 +60,7 @@ namespace Sensors.MPU6050.Register.Registers
         /// Ruft das Register und Setup Byte ab.
         /// </summary>
         /// <returns>Gibt die Bytes zurück.</returns>
-        public byte[] GetRegisterSetup()
+        public override byte[] GetRegisterSetup()
         {
             byte[] ba = new byte[2];
 

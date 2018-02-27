@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sensors.MPU6050.Register", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sensors.MPU6050.Register.Test", "Sensors.MPU6050.Register.Test\Sensors.MPU6050.Register.Test.csproj", "{35658701-C823-47B9-AF57-0C91F8A938A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleMPU9150", "ExampleMPU9150\ExampleMPU9150.csproj", "{B7605269-2565-4EE1-B7A2-AE301FABB741}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,12 @@ Global
 		{35658701-C823-47B9-AF57-0C91F8A938A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35658701-C823-47B9-AF57-0C91F8A938A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35658701-C823-47B9-AF57-0C91F8A938A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7605269-2565-4EE1-B7A2-AE301FABB741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7605269-2565-4EE1-B7A2-AE301FABB741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7605269-2565-4EE1-B7A2-AE301FABB741}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B7605269-2565-4EE1-B7A2-AE301FABB741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7605269-2565-4EE1-B7A2-AE301FABB741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7605269-2565-4EE1-B7A2-AE301FABB741}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,20 +2,15 @@ using System;
 using Microsoft.SPOT;
 using Sensors.Contracts.Interfaces;
 using Sensors.MPU6050.Register.Enums;
+using Sensors.Contracts.Enums;
 
 namespace Sensors.MPU6050.Register.Registers
 {
-    public class RegisterGyroscopeConfiguration : RegisterBase, IRegisterItem
+    public class RegisterGyroscopeConfiguration : RegisterBase
     {
-        /// <summary>
-        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
-        /// </summary>
-        public bool Enable { get; set; }
-
         public RegisterGyroscopeConfiguration()
+            : base()
         {
-            this.Enable = true;
-
             this.XG_ST = false;
             this.YG_ST = false;
             this.ZG_ST = false;
@@ -51,7 +46,7 @@ namespace Sensors.MPU6050.Register.Registers
         /// Ruft das Register und Setup Byte ab.
         /// </summary>
         /// <returns>Gibt die Bytes zurück.</returns>
-        public byte[] GetRegisterSetup()
+        public override byte[] GetRegisterSetup()
         {
             byte[] ba = new byte[2];
 

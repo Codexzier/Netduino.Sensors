@@ -1,6 +1,7 @@
 using System;
 using Microsoft.SPOT;
 using Sensors.Contracts.Interfaces;
+using Sensors.Contracts.Enums;
 
 namespace Sensors.MPU6050.Register.Registers
 {
@@ -8,18 +9,15 @@ namespace Sensors.MPU6050.Register.Registers
     /// Stellt den Register ein für die Bewegungserkennung ein. 
     /// Hiermit lässt sich der Schwellwert Einstellen.
     /// </summary>
-    public class RegisterMotionDetectionThreshold : RegisterBase, IRegisterItem
+    public class RegisterMotionDetectionThreshold : RegisterBase
     {
-        /// <summary>
-        /// Einstellungen zu dem Register werden verwendet, wenn Enable True gesetzt ist.
-        /// </summary>
-        public bool Enable { get; set; }
-
         /// <summary>
         /// Standard Einstellung für MOT_THR = 0 (OFF)
         /// </summary>
         public RegisterMotionDetectionThreshold()
+            : base()
         {
+
             this.MOT_THR = 0;
         }
 
@@ -29,6 +27,8 @@ namespace Sensors.MPU6050.Register.Registers
         /// <param name="threshold"></param>
         public RegisterMotionDetectionThreshold(byte threshold)
         {
+            this.RegisterSetup = RegisterItemUsing.ResgisterSetup;
+
             this.MOT_THR = threshold;
         }
 
@@ -43,7 +43,7 @@ namespace Sensors.MPU6050.Register.Registers
             set
             {
                 this._MOT_THR = value;
-                this.Enable = this._MOT_THR != 0;
+                this.RegisterSetup = this._MOT_THR != 0 ? RegisterItemUsing.ResgisterSetup : RegisterItemUsing.Disabled;
             }
         }
 
@@ -51,7 +51,7 @@ namespace Sensors.MPU6050.Register.Registers
         /// Ruft das Register und Setup Byte ab.
         /// </summary>
         /// <returns>Gibt die Bytes zurück.</returns>
-        public byte[] GetRegisterSetup()
+        public override byte[] GetRegisterSetup()
         {
             byte[] ba = new byte[2];
 

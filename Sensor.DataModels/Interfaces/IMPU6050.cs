@@ -1,11 +1,14 @@
 
+using Sensors.Contracts.Enums;
 namespace Sensors.Contracts.Interfaces
 {
     /// <summary>
     /// Standard Schnittstelle für den MPU6050 Sensor.
     /// </summary>
-    public interface IMPU6050
+    public interface IMPU
     {
-        ISensorDataSixAxisBase GetMeasurements();
+        ISensorData GetMeasurements();
+
+        void Init(IRegisterConfiguration regConfig);
     }
 }

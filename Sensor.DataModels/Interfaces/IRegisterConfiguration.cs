@@ -48,5 +48,8 @@ namespace Sensors.Contracts.Interfaces
         /// die Takt Quelle ausgewelt werden.
         /// </summary>
         IRegisterItem PowerManagement1 { get; set; }
+
+
+        IRegisterItem I2C_Slave0Control { get; set; }
     }
 }

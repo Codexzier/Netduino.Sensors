@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Sensors.Contracts.Interfaces
 {
-    public interface ISensorDataSixAxisBase
+    public interface ISensorData
     {
         int AccelerationX { get; }
         int AccelerationY { get; }
